@@ -16,5 +16,12 @@ public class App
 
         // Visa info kring mina nya kunder
         DisplayCustomerInformation.ShowAllCustomers(myCustomers);
+
+        // Övning
+        // fr1. Visa alla kunder som heter "Anna"
+
+        // fr2. Visa den första kunde som heter "Anna"
+
+        // fr3. Är ALLA fakturor betalda? (svårare)
     }
 }

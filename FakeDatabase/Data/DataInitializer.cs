@@ -29,32 +29,32 @@ internal class DataInitializer
             DateOfBirth = new DateTime(1985, 4, 12),
             Address = "Storgatan 10, 111 22 Stockholm",
             Orders = new List<Order>
+            {
+                new Order
                 {
-                    new Order
+                    OrderId = 1,
+                    CustomerId = 1,
+                    OrderDate = DateTime.Now.AddDays(-7),
+                    Items = new List<Product>
                     {
-                        OrderId = 1,
-                        CustomerId = 1,
-                        OrderDate = DateTime.Now.AddDays(-7),
-                        Items = new List<Product>
-                        {
-                            new Product { ProductId = 1, ProductName = "Bok", Price = 100, Quantity = 2 },
-                            new Product { ProductId = 2, ProductName = "Penna", Price = 10, Quantity = 5 }
-                        },
-                        Invoice = new Invoice { InvoiceId = 1, Amount = 100*2 + 10*5 }
+                        new Product { ProductId = 1, ProductName = "Bok", Price = 100, Quantity = 2 },
+                        new Product { ProductId = 2, ProductName = "Penna", Price = 10, Quantity = 5 }
                     },
-                    new Order
+                    Invoice = new Invoice { InvoiceId = 1, Amount = 100*2 + 10*5, IsPaid = true }
+                },
+                new Order
+                {
+                    OrderId = 2,
+                    CustomerId = 1,
+                    OrderDate = DateTime.Now.AddDays(-2),
+                    Items = new List<Product>
                     {
-                        OrderId = 2,
-                        CustomerId = 1,
-                        OrderDate = DateTime.Now.AddDays(-2),
-                        Items = new List<Product>
-                        {
-                            new Product { ProductId = 3, ProductName = "Dator", Price = 10000, Quantity = 1 },
-                            new Product { ProductId = 4, ProductName = "Tangentbord", Price = 300, Quantity = 1 }
-                        },
-                        Invoice = new Invoice { InvoiceId = 2, Amount = 10000 + 300 }
-                    }
+                        new Product { ProductId = 3, ProductName = "Dator", Price = 10000, Quantity = 1 },
+                        new Product { ProductId = 4, ProductName = "Tangentbord", Price = 300, Quantity = 1 }
+                    },
+                    Invoice = new Invoice { InvoiceId = 2, Amount = 10000 + 300, IsPaid = true }
                 }
+            }
         };
 
         // Lägg till vår nya kund i databasen
@@ -82,7 +82,7 @@ internal class DataInitializer
                         new Product { ProductId = 5, ProductName = "Hörlurar", Price = 200, Quantity = 2 },
                         new Product { ProductId = 6, ProductName = "Mobilskal", Price = 150, Quantity = 1 }
                     },
-                    Invoice = new Invoice { InvoiceId = 3, Amount = 200*2 + 150 }
+                    Invoice = new Invoice { InvoiceId = 3, Amount = 200*2 + 150, IsPaid = true }
                 },
                 new Order
                 {
