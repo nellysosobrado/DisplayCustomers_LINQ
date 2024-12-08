@@ -8,11 +8,11 @@ public class Order
     public decimal TotalAmount { get; set; }
     public string Status { get; set; }
 
-    // En order kan ha flera produkter (inte nullable!)
+    //a order can have many products (not nullable)
     // One to many!
     public List<Product> Items { get; set; } = new List<Product>();
 
-    // En order kan ha EN faktura (inte nullable!)
+    //A order can have one invoice(not nullable)
     // One to many!
     public Invoice Invoice { get; set; }
     public decimal CalculateTotal()

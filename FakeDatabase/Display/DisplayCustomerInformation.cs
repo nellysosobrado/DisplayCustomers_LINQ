@@ -26,8 +26,8 @@ public class DisplayCustomerInformation
                     Console.WriteLine("ProduktId: " + product.ProductName);
                 }
 
-                Console.WriteLine("Total kostnad: " + order.CalculateTotal() + " kr");
-                Console.WriteLine("Betalningsdatum: " + order.Invoice.DueDate);
+                Console.WriteLine("Total sum: " + order.CalculateTotal() + " kr");
+                Console.WriteLine("Date to pay: " + order.Invoice.DueDate);
                 
             }
             Console.WriteLine("======================================");

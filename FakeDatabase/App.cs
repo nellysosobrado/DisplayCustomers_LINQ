@@ -8,28 +8,25 @@ public class App
 {
     public static void Run()
     {
-        // Skapa en connection till vår fake Databas
+       //Connection to the fake databse
         var dataInitializer = new DataInitializer();
         var DbContext = dataInitializer.MigrateAndSeedData();
 
-        // Skapa en connection till våra kunder i Databasen
+        //Connection to customers in the database
         var myCustomers = DbContext.Customers;
 
         // Visa info kring mina nya kunder
         DisplayCustomerInformation.ShowAllCustomers(myCustomers);
 
-        // Övning
-        // fr1. Visa alla kunder som heter "Anna"
+        //Exercise: Display customer named 'Anna'
         var allAnnaCustomer = DbContext.Customers.Where(x => x.FirstName == "Anna").ToList();
         DisplayCustomerInformation.FilterSearch(allAnnaCustomer);
 
-
-        // fr2. Visa den första kunde som heter "Anna"
+        //Exercise: Display first customer named 'Anna'
         var SearchAnna = DbContext.Customers.FirstOrDefault(x => x.FirstName == "Anna");
         DisplayCustomerInformation.FindFirstCustomer(SearchAnna);
 
-
-        // fr3. Är ALLA fakturor betalda? (svårare)
+        //Exercise: Display all paid invoices
         bool allPaid = myCustomers.All(c => c.Orders.All(o => o.Invoice.IsPaid));
         DisplayCustomerInformation.Invoices(allPaid);
 
