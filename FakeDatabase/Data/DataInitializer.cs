@@ -94,7 +94,7 @@ internal class DataInitializer
                         new Product { ProductId = 7, ProductName = "Mössa", Price = 80, Quantity = 3 },
                         new Product { ProductId = 8, ProductName = "Halsduk", Price = 120, Quantity = 1 }
                     },
-                    Invoice = new Invoice { InvoiceId = 4, Amount = 80*3 + 120 }
+                    Invoice = new Invoice { InvoiceId = 4, Amount = 80*3 + 120, IsPaid = false }
                 }
             }
         };

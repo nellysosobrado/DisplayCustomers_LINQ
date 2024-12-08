@@ -1,5 +1,6 @@
 ﻿using FakeDatabase.Data;
 using FakeDatabase.Display;
+using FakeDatabase.Models;
 
 namespace FakeDatabase;
 
@@ -19,9 +20,21 @@ public class App
 
         // Övning
         // fr1. Visa alla kunder som heter "Anna"
+        var allAnnaCustomer = DbContext.Customers.Where(x => x.FirstName == "Anna").ToList();
+        DisplayCustomerInformation.FilterSearch(allAnnaCustomer);
+
 
         // fr2. Visa den första kunde som heter "Anna"
+        var SearchAnna = DbContext.Customers.FirstOrDefault(x => x.FirstName == "Anna");
+        DisplayCustomerInformation.FindFirstCustomer(SearchAnna);
+
 
         // fr3. Är ALLA fakturor betalda? (svårare)
+        bool allPaid = myCustomers.All(c => c.Orders.All(o => o.Invoice.IsPaid));
+        DisplayCustomerInformation.Invoices(allPaid);
+
+   
+        
+
     }
 }

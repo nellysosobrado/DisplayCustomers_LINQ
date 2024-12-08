@@ -31,6 +31,40 @@ public class DisplayCustomerInformation
                 
             }
             Console.WriteLine("======================================");
+
+
+        }
+
+    }
+    public static void FilterSearch(List<Customer> myCustomers)
+    {
+        foreach(Customer customer in myCustomers)
+        {
+            Console.WriteLine("Filter:"+customer.FirstName);
         }
     }
+    public static void FindFirstCustomer(Customer customer)
+    {
+        if (customer != null)
+        {
+            Console.WriteLine($"First customer: {customer.FirstName}, {customer.LastName}");
+        }
+        else
+        {
+            Console.WriteLine("No customer found.");
+        }
+    }
+    public static void Invoices(bool invoice)
+    {
+        if(invoice != true)
+        {
+            Console.WriteLine("Invoices: All invoices are not paid");
+        }
+        else
+        {
+            Console.WriteLine("Invoices: All invoices are paid!");
+        }
+    }
+
+
 }
